@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calci{
+            border: 2px black solid;
+            height: 430px;
+            width: 320px;
+            /* background-color: aqua; */
+            margin-top: 100px;
+            margin-left: 500px;
+        }
+        /* .otptbox{
+            height: 70px;
+            width: 300px;
+            border: 2px black solid;
+            margin-left: 10px;
+            margin-top: 10px;
+        } */
+        button{
+            height: 40px;
+            width: 50px;
+        }
+       #res{
+            height: 70px;
+            width: 90%;
+            margin: 10px;
+            font-size: 30px;
+            border: 2px black solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="calci">
+        <!-- <div class="otptbox" id="res"></div> -->
+        <input type="text" name="" id="res">
+        <table height="300px" width="330px" cellpadding="10" cellspacing="3" >
+            <tr>
+                <td><button onclick="clear()">C</button></td>
+                <td><button onclick="Back('←')">&#x2190;</button></td>
+                <td><button onclick="solve('%')">%</button></td>
+                <td><button onclick="solve('/')">/</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="solve('7')">7</button></td>
+                <td><button onclick="solve('8')">8</button></td>
+                <td><button onclick="solve('9')">9</button></td>
+                <td><button onclick="solve('*')">*</button></td>
+                
+            </tr>
+            <tr>
+                <td><button onclick="solve('4')">4</button></td>
+                <td><button onclick="solve('5')">5</button></td>
+                <td><button onclick="solve('6')">6</button></td>
+                <td><button onclick="solve('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="solve('1')">1</button></td>
+                <td><button onclick="solve('2')">2</button></td>
+                <td><button onclick="solve('3')">3</button></td>
+                <td><button onclick="solve('+')">+</button></td>
+                <!-- <td rowspan="2"><button class="equalto">=</button></td> -->
+            </tr>
+            <tr>
+                <td><button onclick="solve('00')">00</button></td>
+                <td><button onclick="solve('0')">0</button></td>
+                <td><button onclick="solve('.')">.</button></td>
+                <td><button onclick="Result()">=</button></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        // to display values
+        function solve(val){
+            let v = document.getElementById('res').value += val
+        }
+
+        function Result(){
+            let exp1 = document.getElementById('res').value
+            let num = eval(exp1)
+            document.getElementById('res').value = num
+        }
+
+        function Back(){
+            let ev = document.getElementById('res').value
+            ev1 = ev.slice(0,-1)
+            document.getElementById('res').value = ev1
+        }
+
+        function clear(){
+            document.getElementById('res').value = ''
+        }
+
+
+    </script>
+</body>
+</html>
